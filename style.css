@@ -373,3 +373,10 @@ body {
     transform: translateY(-3px);
 }
 
+.visualizations-section{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
