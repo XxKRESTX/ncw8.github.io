@@ -373,10 +373,29 @@ body {
     transform: translateY(-3px);
 }
 
+/*Visualization Section Styles*/
+
 .visualizations-section{
     display: flex;
     flex-direction: row;
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: center;
+}
+
+.visualization-item {
+    border: 2px solid black;
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+text{
+    font-size: 12px;
+    fill: #666;
+    font-weight: bold;
 }
