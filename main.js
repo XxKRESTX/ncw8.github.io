@@ -1,11 +1,42 @@
-let cardHover = document.querySelectorAll('.experience-card');
+// Experience Card Hover Effect
+const experienceCards = document.querySelectorAll('.experience-card');
 
-cardHover.forEach(card => {
-    card.addEventListener('mouseover', () => {
-        card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+experienceCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.classList.add('active');
     });
 
-    card.addEventListener('mouseout', () => {
-        card.style.boxShadow = 'none';
-    }); 
+    card.addEventListener('mouseleave', () => {
+        card.classList.remove('active');
+    });
+});
+
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navbar = document.querySelector('.navbar');
+const menuIcon = menuToggle.querySelector('i');
+
+menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('open');
+    
+    // Toggle icon between bars and X
+    if (navbar.classList.contains('open')) {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-times');
+    } else {
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+    }
+});
+
+// Close menu when clicking a nav link (for mobile)
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+            navbar.classList.remove('open');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
 });
