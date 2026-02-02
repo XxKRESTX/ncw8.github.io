@@ -12,6 +12,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin-left: 220px;
+    background-color: cornsilk;
 }
 
 .navbar {
@@ -31,6 +32,12 @@ body {
     font-weight: 700;
     margin-bottom: 2rem;
     padding-left: 1.5rem;
+    
+}
+
+.nav-brand a{
+    text-decoration: none;
+    color: black;
 }
 
 .nav-links {
@@ -101,13 +108,6 @@ body {
 
 .hero-image {
     flex-shrink: 0;
-}
-
-.profile-img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
 }
 
 .section {
@@ -204,6 +204,26 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;
+    border: 1px solid #1e1e1e;
+}
+
+.education-item {
+    line-height: 1.8;
+}
+
+.education-degree {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.education-school {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.education-date {
+    color: #999;
+    font-size: 0.9rem;
 }
 
 .experience-grid {
@@ -325,8 +345,6 @@ body {
     object-fit: cover;
     border-radius: 12px;
 }
-
-
 
 
 .footer {
