@@ -114,8 +114,8 @@ body {
     padding: 5rem 10%;
 }
 
-.section-title {
-    font-size: 2.5rem;
+.section-title, #about p{
+    font-size: 2rem;
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
@@ -352,16 +352,30 @@ body {
     text-align: center;
 }
 
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+
 .social-links {
     display: flex;
-    justify-content: center;
+    margin-left: 1rem;
     gap: 1.5rem;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .social-links a {
     font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
+    color: black;
 }
 
 .social-links a:hover {
@@ -371,12 +385,21 @@ body {
 /*Visualization Section Styles*/
 
 .visualizations-section{
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    justify-content: center;
+    padding: 2rem;
+}
+
+.visualizations-section h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.viz-grid {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .visualization-item {
@@ -387,6 +410,22 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex: 1;
+    min-width: 300px;
+}
+
+.visualization-item #gundam,
+.visualization-item #straw-hat {
+    display: flex;
+    justify-content: center;
+}
+
+.chart-container {
+    margin-top: 3rem;
+}
+
+.chart-container h3 {
+    text-align: center;
 }
 
 text{
@@ -418,10 +457,12 @@ text{
     .navbar {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
+        padding: 4rem 1rem;
     }
 
     .navbar.open {
         transform: translateX(0);
+        background-color: orangered;
     }
 
     .menu-toggle {
