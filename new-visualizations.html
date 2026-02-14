@@ -1,14 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <section>
-        <h1>New Visualizations</h1>
-        <a href="https://xxkrestx.github.io/A3-Intro-to-vegalite/">New visualizations</a>
-    </section>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      const options = {
+        config: {
+          // Vega-Lite default configuration
+        },
+        init: (view) => {
+          // initialize tooltip handler
+          view.tooltip(new vegaTooltip.Handler().call);
+        },
+        view: {
+          // view constructor options
+          // remove the loader if you don't want to default to vega-datasets!
+          loader: vega.loader({
+            baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+          }),
+          renderer: "canvas",
+        },
+      };
+
+      // register vega and vega-lite with the API
+      vl.register(vega, vegaLite, options);
+    </script>
+  </head>
+  <body>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+    <nav class="navbar">
+        <div class="nav-brand">NW</div>
+        <ul class="nav-links">
+            <li><a href="index.html#hero">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#footer">Contact</a></li>
+            <li><a href="visualizations.html">Visualizations</a></li>
+            <li><a href="new-visualizations.html">New Visualizations</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://github.com/ncw8" target="_blank" aria-label="Visit my GitHub profile"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="Visit my LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com" aria-label="Send me an email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </nav>
+    <div class="new-view-container">
+      <div class="viz-card">
+        <h2 class="viz-title">DS vs 3DS: Genre Comparison</h2>
+        <p class="viz-description">Total global sales by genre for Nintendo DS and 3DS platforms</p>
+        <div id="view4"></div>
+      </div>
+      
+      <div class="viz-card">
+        <h2 class="viz-title">RPG & Strategy: Handheld vs Home Console</h2>
+        <p class="viz-description">Comparing sales of RPG and Strategy genres across different platforms</p>
+        <div id="view2"></div>
+      </div>
+      
+      <div class="viz-card viz-card-wide">
+        <h2 class="viz-title">Genre Evolution Over Time</h2>
+        <p class="viz-description">Tracking the popularity trends of major game genres across years</p>
+        <div id="view3"></div>
+      </div>
+      
+      <div class="viz-card viz-card-wide">
+        <h2 class="viz-title">7th Gen Console War</h2>
+        <p class="viz-description">Sales lifecycle comparison of Wii, PlayStation 3, and Xbox 360</p>
+        <div id="view6"></div>
+      </div>
+      
+      <div class="viz-card">
+        <div id="view"></div>
+      </div>
+      <div class="viz-card">
+        <div id="view5"></div>
+      </div>
+      
+      <div class="viz-card viz-card-wide">
+        <div id="viewLifespan"></div>
+        
+      </div>
+        <div class="viz-card viz-card-wide">
+      <div id="viewSalesVar"></div>
+      </div>
+    </div>
+    <script src="newvis.js"></script>
+    <script src="vegaEmbed.js"></script>
+  </body>
 </html>
