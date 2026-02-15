@@ -13,7 +13,6 @@ async function main() {
   const dataWide = await fetchData();
   const dataLong = await fetchDataLong();
 
-  // Prompt 1: DS vs 3DS - Genre Breakdown (Faceted Bar Chart)
   const vlSpec = vl
     .markBar()
     .data(dataWide)
@@ -30,8 +29,6 @@ async function main() {
     .height(250)
     .toSpec();
     
-
-  // Prompt 2: RPG and Strategy genres across handhelds vs home consoles
   const vlSpec2 = vl
     .markBar()
     .data(dataWide)
@@ -49,7 +46,6 @@ async function main() {
     .height(300)
     .toSpec();
 
-  // Genre Evolution - Multi-Line Chart Over Time
   const vlSpec3 = vl
     .markLine()
     .data(dataWide)
@@ -60,13 +56,12 @@ async function main() {
       vl.x().fieldT("Year").title("Year"),
       vl.y().fieldQ("Global_Sales").aggregate("sum").title("Global Sales"),
       vl.color().fieldN("Genre").title("Genre"),
-      vl.strokeWidth().value(2)
+
     )
     .width("container")
     .height(300)
     .toSpec();
 
-  // 7th Gen Console War - Sales Lifecycle (Wii, PS3, X360)
   const vlSpecPlatform = vl
     .markLine()
     .data(dataWide)
