@@ -22,10 +22,10 @@ const calmColors = [
 ];
 const colorScale = d3.scaleOrdinal(calmColors);
 
-//d3 drag behavior for circles
+// d3 drag behavior for circles
 const dragHandler = d3.drag()
   .on("start", function(event, d) {
-    // Stop the breathing animation immediately so it doesn't fight the drag
+    // Interrupt the initial entrance animation if grabbed early
     d3.select(this).interrupt(); 
     // Bring the dragged circle to the front and add a subtle stroke
     d3.select(this).raise().style("stroke", "#000").style("stroke-width", 3);
@@ -40,8 +40,6 @@ const dragHandler = d3.drag()
   .on("end", function(event, d) {
     // Remove the stroke when dropped
     d3.select(this).style("stroke", null);
-    // Restart the breathing animation from its new location
-    breatheAndDrift.call(this);
   });
 
 svg.on("click", function(event) {
@@ -65,12 +63,11 @@ svg.on("click", function(event) {
   updateVis();
 });
 
-
-
 function updateVis() {
   const circles = svg.selectAll("circle")
     .data(circleData, d => d.id);
 
+  // Exit phase: Oldest circle fades out
   circles.exit()
     .transition()
     .duration(1500)
@@ -78,6 +75,7 @@ function updateVis() {
     .style("opacity", 0) 
     .remove();
 
+  // Enter phase: New circles fade in
   const enterCircles = circles.enter()
     .append("circle")
     .attr("cx", d => d.x)
@@ -92,6 +90,7 @@ function updateVis() {
     .duration(1200)
     .ease(d3.easeQuadOut)
     .attr("r", d => d.baseRadius)
-    .style("opacity", 0.6)
-    .on("end", breatheAndDrift); 
+    .style("opacity", 0.6); 
 }
+
+updateVis();
