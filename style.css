@@ -485,6 +485,24 @@ text{
   min-height: 300px;
 }
 
+#visContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    margin-top: 60px; 
+}
+
+.d3_section {
+    padding: 5rem 10%;
+    border-radius: 12px;
+}
+
+.d3_section .section-description {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
 
 /* Mobile Menu Toggle */
