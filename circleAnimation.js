@@ -31,7 +31,7 @@ const dragHandler = d3.drag()
     d3.select(this).raise().style("stroke", "#000").style("stroke-width", 3);
   })
   .on("drag", function(event, d) {
-    // Update the underlying data coordinates
+    // coordinate updates
     d.x = event.x;
     d.y = event.y;
     // Update the visual circle's position
@@ -67,7 +67,7 @@ function updateVis() {
   const circles = svg.selectAll("circle")
     .data(circleData, d => d.id);
 
-  // Exit phase: Oldest circle fades out
+  //Oldest circle fades out
   circles.exit()
     .transition()
     .duration(1500)
@@ -75,7 +75,7 @@ function updateVis() {
     .style("opacity", 0) 
     .remove();
 
-  // Enter phase: New circles fade in
+  // New circles fade in
   const enterCircles = circles.enter()
     .append("circle")
     .attr("cx", d => d.x)
